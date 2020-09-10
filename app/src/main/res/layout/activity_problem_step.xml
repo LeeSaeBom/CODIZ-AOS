@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <TextView
+        android:id="@+id/problemName"
+        android:layout_width="304dp"
+        android:layout_height="56dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="28dp"
+        android:background="#EAF3FD"
+        android:scaleType="center"
+        android:gravity="center"
+        android:text="test"
+        app:layout_constraintBottom_toTopOf="@+id/reg_bg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.898"
+        />
+
+
+    <ImageView
+        android:id="@+id/reg_bg"
+        android:layout_width="304dp"
+        android:layout_height="290dp"
+        android:layout_marginTop="108dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/reg_input" />
+
+    <TextView
+        android:id="@+id/problemDescription"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="첫째 줄에 다음 세 가지 중 하나를 출력한다.
+        &#10; &#10; A가 B보다 큰 경우에는 &lt;를 출력한다.
+        &#10; &#10; A가 B보다 작은 경우에는 &gt;를 출력한다.
+        &#10; &#10; A와 B가 같은 경우에는 를 출력한다."
+        app:layout_constraintBottom_toBottomOf="@+id/reg_bg"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toTopOf="@+id/reg_bg"
+        app:layout_constraintVertical_bias="0.247" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="80dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="330dp" />
+
+
+    <Button
+        android:id="@+id/problem_start_btn"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:background="#8fc4f7"
+        android:text="GO"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reg_bg" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
