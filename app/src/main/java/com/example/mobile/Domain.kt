@@ -29,7 +29,9 @@ data class ProblemFrame(
 
 enum class ProblemType(val problemName: String) {
     IF("If"),
-    WHILE("While"),
     FOR("For"),
-    ARRAY("Array");
+    WHILE("While"),
+    FUNCTION("함수"),
+    ONE_DIMENSION_ARRAY("1차원 배열"),
+    MULTI_DIMENSION_ARRAY("다차원 배열");
 }
