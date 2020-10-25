@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.mobile">
 
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <uses-feature android:name="android.hardware.type.watch" />
+
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -12,11 +16,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ProblemActivity"></activity>
+        <activity android:name=".GrammerActivity"></activity>
+        <activity android:name=".SelectActivity"></activity>
+        <activity android:name=".ProblemActivity" />
         <activity android:name=".ProblemStepActivity" />
         <activity android:name=".Result2Activity" />
-        <activity android:name=".IfChoose2Activity" />
-        <activity android:name=".ChooseActivity" />
         <activity android:name=".ResultActivity" />
         <activity
             android:name=".SplashActivity"

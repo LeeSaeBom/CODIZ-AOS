@@ -40,7 +40,7 @@ class LoginActivity : AppCompatActivity() {
         val responseCode = signInAsyncTask.execute().get()
 
         if (responseCode == HttpURLConnection.HTTP_NO_CONTENT) {
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, SelectActivity::class.java)
             startActivity(intent)
         } else if (responseCode == HttpURLConnection.HTTP_NOT_FOUND) {
             Snackbar.make(login_layout_id, "아이디를 찾을 수 없습니다.", Snackbar.LENGTH_SHORT).show()
