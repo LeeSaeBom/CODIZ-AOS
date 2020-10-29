@@ -16,21 +16,20 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <activity
+            android:name=".SplashActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".GrammerActivity"></activity>
         <activity android:name=".SelectActivity"></activity>
         <activity android:name=".ProblemActivity" />
         <activity android:name=".ProblemStepActivity" />
         <activity android:name=".Result2Activity" />
         <activity android:name=".ResultActivity" />
-        <activity
-            android:name=".SplashActivity"
-            android:theme="@style/Splash">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
         <activity android:name=".RegActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".MainActivity" />

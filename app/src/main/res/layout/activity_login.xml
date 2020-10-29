@@ -4,13 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#D5E6FA"
+    android:background="#FFFFFF"
     android:orientation="vertical"
     android:id="@+id/login_layout_id">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <View
+
+        android:id="@+id/topView3"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="22dp"
+        android:background="#B2D0EB"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="-2dp" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="560dp"
+        android:layout_height="928dp">
 
         <ImageView
             android:id="@+id/login_bg"
@@ -68,29 +78,47 @@
 
         <Button
             android:id="@+id/login_btn"
-            android:layout_width="130dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="30dp"
-            android:background="#FFFFFF"
-            android:text="로그인"
+            android:layout_width="158dp"
+            android:layout_height="46dp"
+            android:background="#D6E7F3 "
+            android:text="SIGN IN"
+            app:layout_constraintBottom_toTopOf="@+id/textView"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/login_reg_btn"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/login_bg" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="148dp"
+            android:layout_height="26dp"
+            android:text="Don't have an account?"
+            app:layout_constraintBottom_toTopOf="@+id/topView4"
+            app:layout_constraintEnd_toStartOf="@+id/login_reg_btn"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/login_btn" />
 
         <Button
             android:id="@+id/login_reg_btn"
-            android:layout_width="130dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="20dp"
-            android:background="#FFFFFF"
-            android:text="회원가입"
-            app:layout_constraintEnd_toStartOf="@+id/login_btn"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/login_bg" />
+            android:layout_width="73dp"
+            android:layout_height="21dp"
+            android:background="#EBEAE8"
+            android:text="Sign Up"
+            app:layout_constraintBottom_toTopOf="@+id/topView4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/textView"
+            app:layout_constraintTop_toBottomOf="@+id/login_btn"
+            app:layout_constraintVertical_bias="0.482" />
+
+        <View
+            android:id="@+id/topView4"
+            android:layout_width="match_parent"
+            android:layout_height="22dp"
+            android:background="#B2D0EB"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="-11dp"
+            tools:layout_editor_absoluteY="598dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
