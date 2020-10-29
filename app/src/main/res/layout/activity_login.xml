@@ -122,13 +122,11 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
 
-            android:layout_marginStart="30dp"
             android:layout_marginTop="76dp"
+            android:layout_marginEnd="10dp"
             android:text="Don't have an account?"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/login_reg_btn"
             app:layout_constraintHeight_percent="0.1"
-            app:layout_constraintHorizontal_bias="0.187"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/login_btn"
             app:layout_constraintWidth_percent="0.4" />
 
@@ -136,7 +134,7 @@
             android:id="@+id/login_reg_btn"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginTop="72dp"
+            android:layout_marginTop="76dp"
 
             android:background="@drawable/bnt_gray"
             android:text="Sign Up"

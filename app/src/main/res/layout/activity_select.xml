@@ -5,30 +5,82 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    tools:context=".SelectActivity" >
+    tools:context=".SelectActivity">
 
 
     <Button
+        android:id="@+id/grammerButton"
+        android:layout_width="337dp"
+        android:layout_height="206dp"
+        android:layout_marginBottom="128dp"
+        android:background="@drawable/border_blue"
+        android:fontFamily="sans-serif-medium"
+        android:text="문법 보기"
+        android:textColor="#D5656262"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:typeface="normal"
+        app:layout_constraintBottom_toTopOf="@+id/problemButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/top"
+        app:layout_constraintVertical_bias="0.954" />
+
+    <Button
         android:id="@+id/problemButton"
-        android:layout_width="261dp"
-        android:layout_height="87dp"
-        android:layout_marginBottom="244dp"
-        android:background="#FFFFFF"
+        android:layout_width="337dp"
+        android:layout_height="206dp"
+        android:layout_marginBottom="104dp"
+        android:background="@drawable/border_blue"
         android:text="문제 선택"
+        android:textColor="#D5656262"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:typeface="normal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
-        android:id="@+id/grammerButton"
-        android:layout_width="261dp"
-        android:layout_height="87dp"
-        android:layout_marginBottom="128dp"
-        android:background="#FFFFFF"
-        android:text="문법 보기"
-        app:layout_constraintBottom_toTopOf="@+id/problemButton"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/top"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.025"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.967" />
+        app:layout_constraintWidth_percent="1">
+
+        <View
+            android:id="@+id/topView3"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="#B2D0EB"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.025"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintWidth_percent="1">
+
+        <View
+            android:id="@+id/topView4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#B2D0EB"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="MissingConstraints" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
