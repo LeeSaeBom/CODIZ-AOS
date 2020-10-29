@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.mobile.service.LoginService
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_login.*
-import okhttp3.*
+import okhttp3.OkHttpClient
 import java.net.HttpURLConnection
 
 
@@ -18,6 +18,7 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+
 
         loginService = LoginService(OkHttpClient(), this)
 
