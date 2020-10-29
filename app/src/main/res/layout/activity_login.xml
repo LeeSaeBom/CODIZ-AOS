@@ -71,6 +71,7 @@
                 android:ems="10"
                 android:hint="ID"
                 android:inputType="textPersonName"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -86,6 +87,7 @@
                 android:ems="10"
                 android:hint="PW"
                 android:inputType="textPassword"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/login_id" />
@@ -107,7 +109,7 @@
             android:id="@+id/login_btn"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:background="#D6E7F3 "
+            android:background="@drawable/bnt_blue"
             android:text="SIGN IN"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHeight_percent="0.2"
@@ -121,11 +123,11 @@
             android:layout_height="0dp"
 
             android:layout_marginStart="30dp"
-            android:layout_marginTop="72dp"
+            android:layout_marginTop="76dp"
             android:text="Don't have an account?"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHeight_percent="0.1"
-            app:layout_constraintHorizontal_bias="0.086"
+            app:layout_constraintHorizontal_bias="0.187"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/login_btn"
             app:layout_constraintWidth_percent="0.4" />
@@ -136,7 +138,7 @@
             android:layout_height="0dp"
             android:layout_marginTop="72dp"
 
-            android:background="#EBEAE8"
+            android:background="@drawable/bnt_gray"
             android:text="Sign Up"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHeight_percent="0.1"

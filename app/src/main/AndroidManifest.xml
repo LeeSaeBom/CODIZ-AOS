@@ -30,7 +30,8 @@
         <activity android:name=".ProblemStepActivity" />
         <activity android:name=".Result2Activity" />
         <activity android:name=".ResultActivity" />
-        <activity android:name=".RegActivity" />
+        <activity android:name=".RegActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".LoginActivity"
             android:theme="@style/AppTheme.NoActionBar"/> <!-- 상단 타이틀 바 제거-->
         <activity android:name=".MainActivity"
