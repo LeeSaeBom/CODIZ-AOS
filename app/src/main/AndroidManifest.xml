@@ -26,8 +26,10 @@
         </activity>
         <activity android:name=".GrammerActivity"></activity>
         <activity android:name=".SelectActivity"></activity>
-        <activity android:name=".ProblemActivity" />
-        <activity android:name=".ProblemStepActivity" />
+        <activity android:name=".ProblemActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".ProblemStepActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".Result2Activity" />
         <activity android:name=".ResultActivity" />
         <activity android:name=".RegActivity"
