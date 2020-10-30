@@ -6,30 +6,55 @@
     android:layout_height="match_parent"
     android:background="@color/background">
 
+    <View
+        android:id="@+id/topView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#B2D0EB"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.025"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="1.0"
+        tools:ignore="MissingConstraints" />
+
+    <View
+        android:id="@+id/topView2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#B2D0EB"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.025"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintWidth_percent="1"
+        tools:ignore="MissingConstraints" />
+
+
     <TextView
         android:id="@+id/problemName"
         android:layout_width="304dp"
         android:layout_height="56dp"
         android:layout_gravity="center"
-        android:layout_marginBottom="28dp"
-        android:background="#EAF3FD"
-        android:scaleType="center"
+        android:background="#FFFFFF"
         android:gravity="center"
-        android:text="test"
+        android:scaleType="center"
+        android:text="문제 설명"
+        android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/reg_bg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.898"
-        />
-
+        app:layout_constraintTop_toBottomOf="@+id/topView"
+        app:layout_constraintVertical_bias="1.0" />
 
     <ImageView
         android:id="@+id/reg_bg"
         android:layout_width="304dp"
         android:layout_height="290dp"
-        android:layout_marginTop="108dp"
+        android:layout_marginTop="144dp"
+        android:background="@drawable/border_blue"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
@@ -72,7 +97,7 @@
         android:layout_height="58dp"
         android:layout_marginTop="84dp"
         android:background="@drawable/bnt_blue"
-        android:text="GO"
+        android:text="LET'S GO!"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/reg_bg" />
