@@ -50,6 +50,15 @@ data class Grammer(
     val grammerType: GrammerType
 )
 
-enum class GrammerType {
-
+enum class GrammerType(val grammerName: String) {
+    BASIC("기초사항"),
+    VARIABLE_DATATYPE("변수와 자료형"),
+    OPERATION("수식과 연산"),
+    CONDITIONAL("조건문"),
+    ITERATION("반복문"),
+    ARRAY("배열"),
+    FUNCTION("함수"),
+    POINTER("포인터"),
+    STRING("문자열"),
+    STRUCTURE("구조체")
 }
