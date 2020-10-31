@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">codiz</string>
-    <string name="server_host">192.168.0.13</string>
+    <string name="server_host">192.168.0.2</string>
     <string name="server_port">8080</string>
     <string name="title_activity_select">SelectActivity</string>
     <!--

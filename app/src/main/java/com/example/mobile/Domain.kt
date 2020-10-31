@@ -28,10 +28,18 @@ data class ProblemFrame(
 )
 
 enum class ProblemType(val problemName: String) {
-    IF("If"),
-    FOR("For"),
-    WHILE("While"),
+    INPUT_OUTPUT("입출력"),
+    VARIABLE_DATATYPE("변수와 자료형"),
+    FOR("수식과 연산"),
+    IF("조건문"),
+    WHILE("반복문"),
+    ONE_DIMENSION_ARRAY("배열"),
     FUNCTION("함수"),
-    ONE_DIMENSION_ARRAY("1차원 배열"),
-    MULTI_DIMENSION_ARRAY("다차원 배열");
+    MULTI_DIMENSION_ARRAY("포인터"),
+    STRING("문자열"),
+    STRUCTURE("구조체"),
+    RECURSIVE("재귀"),
+    SORT("정렬"),
+    BACKTRACKING("백트래킹"),
+    DYNAMIC_PROGRAMMING("동적프로그래밍");
 }

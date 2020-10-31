@@ -5,14 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    tools:context=".SelectActivity">
+    >
 
 
     <Button
         android:id="@+id/grammerButton"
         android:layout_width="337dp"
         android:layout_height="206dp"
-        android:layout_marginBottom="128dp"
+        android:layout_marginTop="96dp"
         android:background="@drawable/border_blue"
         android:fontFamily="sans-serif-medium"
         android:text="문법 보기"
@@ -20,17 +20,15 @@
         android:textSize="24sp"
         android:textStyle="bold"
         android:typeface="normal"
-        app:layout_constraintBottom_toTopOf="@+id/problemButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/top"
-        app:layout_constraintVertical_bias="0.954" />
+        app:layout_constraintTop_toBottomOf="@+id/top" />
 
     <Button
         android:id="@+id/problemButton"
         android:layout_width="337dp"
         android:layout_height="206dp"
-        android:layout_marginBottom="104dp"
+        android:layout_marginBottom="112dp"
         android:background="@drawable/border_blue"
         android:text="문제 선택"
         android:textColor="#D5656262"
