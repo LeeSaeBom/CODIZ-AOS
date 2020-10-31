@@ -16,21 +16,35 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <uses-library
+            android:name="com.google.android.wearable"
+            android:required="true" />
+
+        <!--
+               Set to true if your app is Standalone, that is, it does not require the handheld
+               app to run.
+        -->
+        <activity
+            android:name=".GrammerDetailActivity">
+        </activity>
         <activity
             android:name=".SplashActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".GrammerActivity"
-            android:theme="@style/AppTheme.NoActionBar">>
+            android:theme="@style/AppTheme.NoActionBar">
+            >
         </activity>
         <activity
             android:name=".SelectActivity"
-            android:theme="@style/AppTheme.NoActionBar">>
+            android:theme="@style/AppTheme.NoActionBar">
+            >
         </activity>
         <activity
             android:name=".ProblemActivity"
@@ -41,7 +55,6 @@
         <activity
             android:name=".Result2Activity"
             android:theme="@style/AppTheme.NoActionBar" />
-
         <activity
             android:name=".ResultActivity"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -50,11 +63,10 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".LoginActivity"
-            android:theme="@style/AppTheme.NoActionBar" /> <!-- 상단 타이틀 바 제거-->
+            android:theme="@style/AppTheme.NoActionBar" /> <!-- 상단 타이틀 바 제거 -->
         <activity
             android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-
     </application>
 
 </manifest>

@@ -1,6 +1,7 @@
 package com.example.mobile
 
 import android.content.Context
+import android.content.Intent
 import android.os.AsyncTask
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -26,6 +27,7 @@ class GrammerActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_grammer)
         grammerService = GrammerService(OkHttpClient(), this)
+        init()
     }
 
     private fun init() {
@@ -95,6 +97,17 @@ class GrammerActivity : AppCompatActivity() {
 
             val stepButton = view.findViewById<Button>(R.id.stepButton)
             stepButton.text = grammerList[groupPosition][childPosition].grammerName
+            stepButton.setOnClickListener {
+                val intent = Intent(context, GrammerDetailActivity::class.java)
+                intent.putExtra(
+                    "grammerName",
+                    grammerList[groupPosition][childPosition].grammerName
+                )
+                intent.putExtra(
+                    "grammerDescription",
+                    grammerList[groupPosition][childPosition].description
+                )
+            }
 
             return view
         }

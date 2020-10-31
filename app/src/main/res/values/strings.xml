@@ -9,4 +9,5 @@
     -->
     <string name="hello_world">Hello Square World!</string>
     <string name="title_activity_grammer">GrammerActivity</string>
+    <string name="title_activity_grammer_detail">GrammerDetailActivity</string>
 </resources>
