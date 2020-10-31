@@ -1,7 +1,7 @@
 package com.example.mobile
 
 import android.content.Context
-import android.content.Intent
+import android.os.AsyncTask
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,28 +9,43 @@ import android.view.ViewGroup
 import android.widget.BaseExpandableListAdapter
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.mobile.service.GrammerService
 import kotlinx.android.synthetic.main.activity_main.*
+import okhttp3.OkHttpClient
 
 class GrammerActivity : AppCompatActivity() {
 
-    val groupList = arrayOf("조건문", "반복문", "함수")
-    private val grammerList = arrayOf(
-        arrayOf("if", "switch"),
-        arrayOf("for", "while"),
-        arrayOf("함수 선언")
-    )
+    val groupList = GrammerType.values()
+    private val grammerList = ArrayList<Grammer>()
+
+    lateinit var grammerService: GrammerService
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_grammer)
+        grammerService = GrammerService(OkHttpClient(), this)
+    }
 
-        expanded_menu.setAdapter(GrammerExpandAdapter(groupList, grammerList, this))
+    private fun init() {
+        val grammers = GrammerAsyncTask(grammerService).execute().get()
+        if (grammers == null) {
+            Toast.makeText(this, "유효하지 않은 문법입니다.", Toast.LENGTH_SHORT).show()
+            finish()
+        } else {
+            val grammerArray = Array<ArrayList<Grammer>>(groupList.size) { ArrayList() }
+            for (grammer in grammers) {
+                val index = groupList.indexOf(grammer.grammerType)
+                grammerArray[index].add(grammer)
+            }
+            expanded_menu.setAdapter(GrammerExpandAdapter(groupList, grammerArray, this))
+        }
     }
 
     class GrammerExpandAdapter(
-        private val groupList: Array<String>,
-        private val grammerList: Array<Array<String>>,
+        private val groupList: Array<GrammerType>,
+        private val grammerList: Array<ArrayList<Grammer>>,
         private val context: Context
     ) : BaseExpandableListAdapter() {
 
@@ -63,7 +78,7 @@ class GrammerActivity : AppCompatActivity() {
                     .inflate(R.layout.problem_group, parent, false)
 
             val textView = view.findViewById<TextView>(R.id.groupName)
-            textView.text = groupList[groupPosition]
+            textView.text = groupList[groupPosition].grammerName
             return view
         }
 
@@ -79,11 +94,20 @@ class GrammerActivity : AppCompatActivity() {
                     .inflate(R.layout.problem_button, parent, false)
 
             val stepButton = view.findViewById<Button>(R.id.stepButton)
-            stepButton.text = grammerList[groupPosition][childPosition]
+            stepButton.text = grammerList[groupPosition][childPosition].grammerName
 
             return view
         }
 
         override fun isChildSelectable(groupPosition: Int, childPosition: Int): Boolean = true
+    }
+
+    class GrammerAsyncTask(
+        private val grammerService: GrammerService
+    ) : AsyncTask<Unit, Unit, List<Grammer>>() {
+
+        override fun doInBackground(vararg params: Unit?): List<Grammer> {
+            return grammerService.getGrammerList()
+        }
     }
 }

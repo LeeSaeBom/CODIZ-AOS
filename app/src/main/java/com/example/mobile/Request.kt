@@ -19,3 +19,7 @@ data class ProblemFrameRequest(
 data class ProblemPutRequest(
     val problem: Problem
 )
+
+data class GrammerRequest(
+    val grammer: Grammer
+)
