@@ -43,3 +43,13 @@ enum class ProblemType(val problemName: String) {
     BACKTRACKING("백트래킹"),
     DYNAMIC_PROGRAMMING("동적프로그래밍");
 }
+
+data class Grammer(
+    val description: String,
+    val grammerName: String,
+    val grammerType: GrammerType
+)
+
+enum class GrammerType {
+
+}
