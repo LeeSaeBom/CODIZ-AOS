@@ -5,11 +5,15 @@
     android:orientation="vertical">
 
     <TextView
+        android:background="@drawable/bnt_blue"
+        android:textSize="18dp"
+        android:text="아아ㅏ앙아아앙아아"
         android:id="@+id/problemName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <TextView
+        android:text="아아ㅏ앙아아앙아아"
         android:id="@+id/result"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
