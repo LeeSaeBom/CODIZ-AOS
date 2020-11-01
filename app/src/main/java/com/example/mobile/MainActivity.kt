@@ -19,10 +19,12 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var problemService: ProblemService
     private lateinit var baseProblemFrames: List<ProblemFrame>
+    var userId: String =""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        userId = intent.getStringExtra("userId")
 
         problemService = ProblemService(OkHttpClient(), this)
 
@@ -40,10 +42,11 @@ class MainActivity : AppCompatActivity() {
             problemFrames[index].add(problemFrame)
         }
 
-        expanded_menu.setAdapter(ProblemExpandAdapter(problemFrames, this))
+        expanded_menu.setAdapter(ProblemExpandAdapter(userId, problemFrames, this))
     }
 
     class ProblemExpandAdapter(
+        private val userId: String,
         private val problemFrames: Array<ArrayList<ProblemFrame>>,
         private val context: Context
     ) : BaseExpandableListAdapter() {
@@ -92,6 +95,15 @@ class MainActivity : AppCompatActivity() {
             button.setOnClickListener {
                 val intent = Intent(context, ProblemStepActivity::class.java)
                 intent.putExtra("problemId", problemFrames[groupPosition][childPosition].id)
+                intent.putExtra("userId", userId)
+                intent.putExtra(
+                    "problemName",
+                    problemFrames[groupPosition][childPosition].problemName
+                )
+                intent.putExtra(
+                    "problemType",
+                    problemFrames[groupPosition][childPosition].problemType.toString()
+                )
                 context.startActivity(intent)
             }
             return view

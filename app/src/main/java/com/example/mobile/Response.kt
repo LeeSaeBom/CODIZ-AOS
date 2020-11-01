@@ -20,3 +20,7 @@ data class ProblemFrameResponse(
 data class GrammerResponse(
     val grammers: List<Grammer>
 )
+
+data class ProblemHistoryResponse(
+    val problemHistories: List<ProblemHistory>
+)

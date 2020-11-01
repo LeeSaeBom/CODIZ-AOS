@@ -22,12 +22,18 @@ class ProblemActivity : AppCompatActivity() {
 
     private var problemId: Long = 0
     private lateinit var problemService: ProblemService
+    private var userId: String = ""
+    private lateinit var problemName: String
+    private lateinit var problemType: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_problem)
-        problemId = intent.getLongExtra("problemId", 0)
         problemService = ProblemService(OkHttpClient(), this)
+        problemId = intent.getLongExtra("problemId", 0)
+        userId = intent.getStringExtra("userId")
+        problemName = intent.getStringExtra("problemName")
+        problemType = intent.getStringExtra("problemType")
         init()
     }
 
@@ -38,14 +44,24 @@ class ProblemActivity : AppCompatActivity() {
             finish()
         } else {
             viewPager.adapter =
-                ProblemViewPageAdapter(this, problemFrameResponse.problems, problemId)
+                ProblemViewPageAdapter(
+                    this,
+                    problemFrameResponse.problems,
+                    problemId,
+                    problemName,
+                    problemType,
+                    userId
+                )
         }
     }
 
     class ProblemViewPageAdapter(
         private val context: Context,
         private val problems: List<Problem>,
-        private val problemId: Long
+        private val problemId: Long,
+        private val problemName: String,
+        private val problemType: String,
+        private val userId: String
     ) : PagerAdapter() {
 
         private val saveAnswer: Array<Int> = Array(problems.size) { 0 }
@@ -66,6 +82,9 @@ class ProblemActivity : AppCompatActivity() {
                     intent.putExtra("correct", correct)
                     intent.putExtra("total", saveAnswer.size)
                     intent.putExtra("problemId", problemId)
+                    intent.putExtra("problemName", problemName)
+                    intent.putExtra("problemType", problemType)
+                    intent.putExtra("userId", userId)
                     context.startActivity(intent)
                     if (context is AppCompatActivity) {
                         context.finish()

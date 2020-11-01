@@ -13,6 +13,9 @@ class ProblemStepActivity : AppCompatActivity() {
 
     private lateinit var problemService: ProblemService
     private var problemId: Long = 0
+    private var userId: String = ""
+    private lateinit var problemFrameName: String
+    private lateinit var problemType: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,6 +23,9 @@ class ProblemStepActivity : AppCompatActivity() {
 
         problemId = intent.getLongExtra("problemId", 0)
         problemService = ProblemService(OkHttpClient(), this)
+        userId = intent.getStringExtra("userId")
+        problemFrameName = intent.getStringExtra("problemName")
+        problemType = intent.getStringExtra("problemType")
 
         init()
     }
@@ -36,6 +42,9 @@ class ProblemStepActivity : AppCompatActivity() {
             problem_start_btn.setOnClickListener {
                 val intent = Intent(applicationContext, ProblemActivity::class.java)
                 intent.putExtra("problemId", problemId)
+                intent.putExtra("problemName", problemFrameName)
+                intent.putExtra("userId", userId)
+                intent.putExtra("problemType", problemType)
                 startActivity(intent)
                 finish()
             }

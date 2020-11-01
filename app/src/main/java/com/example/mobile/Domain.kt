@@ -62,3 +62,11 @@ enum class GrammerType(val grammerName: String) {
     STRING("문자열"),
     STRUCTURE("구조체")
 }
+
+data class ProblemHistory(
+    val userId: String,
+    val problemId: Long,
+    val problemName: String,
+    val problemType: ProblemType,
+    val result: Boolean
+)
