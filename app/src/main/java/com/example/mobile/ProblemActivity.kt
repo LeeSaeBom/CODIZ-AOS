@@ -75,7 +75,7 @@ class ProblemActivity : AppCompatActivity() {
                 return view
             } else {
                 val view =
-                    LayoutInflater.from(context).inflate(R.layout.choose_item, container, false)
+                    LayoutInflater.from(context).inflate(R.layout.activity_choose, container, false)
                 container.addView(view)
 
                 val problemTextView = view.findViewById<TextView>(R.id.problemDescription)
@@ -100,7 +100,7 @@ class ProblemActivity : AppCompatActivity() {
                 for (index in 0 until 4) {
                     btnArray[index].setOnClickListener {
                         btnArray[index].setBackgroundColor(context.getColor(R.color.buttonSelect))
-                        saveAnswer[position] = index
+                        saveAnswer[position] = index + 1
                         for (other in 0 until 4) {
                             if (index == other) {
                                 continue

@@ -104,9 +104,10 @@ class GrammerActivity : AppCompatActivity() {
                     grammerList[groupPosition][childPosition].grammerName
                 )
                 intent.putExtra(
-                    "grammerDescription",
+                    "description",
                     grammerList[groupPosition][childPosition].description
                 )
+                context.startActivity(intent)
             }
 
             return view

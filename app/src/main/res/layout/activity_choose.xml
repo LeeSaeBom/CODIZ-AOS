@@ -37,17 +37,28 @@
         app:layout_constraintTop_toBottomOf="@+id/const_top"
         app:layout_constraintWidth_percent="1">
 
-        <TextView
-            android:id="@+id/problemDescription"
-            android:layout_width="349dp"
-            android:layout_height="360dp"
-            android:background="@drawable/border_blue"
-            android:padding="10dp"
-            android:text="#include &lt;stdio.h&gt; \n if(     (1번)      )"
+
+        <ScrollView
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="349dp"
+            android:layout_height="360dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/problemDescription"
+                    android:layout_width="349dp"
+                    android:layout_height="360dp"
+                    android:background="@drawable/border_blue"
+                    android:padding="10dp"
+                    android:text="#include &lt;stdio.h&gt; \n if(     (1번)      )"
+                    />
+            </LinearLayout>
+        </ScrollView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -66,7 +77,7 @@
             android:layout_height="46dp"
             android:layout_gravity="right"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="1dp"
             android:layout_marginEnd="20dp"
             android:background="@drawable/bnt_gray"
             android:text="1번"
