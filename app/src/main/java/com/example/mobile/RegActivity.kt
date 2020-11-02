@@ -1,11 +1,10 @@
 package com.example.mobile
 
-import android.content.Intent
 import android.os.AsyncTask
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import com.example.mobile.service.LoginService
+import com.example.mobile.service.UserService
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_reg.*
 import okhttp3.OkHttpClient
@@ -13,13 +12,13 @@ import javax.net.ssl.HttpsURLConnection
 
 class RegActivity : AppCompatActivity() {
 
-    private lateinit var loginService: LoginService
+    private lateinit var userService: UserService
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_reg)
 
-        loginService = LoginService(OkHttpClient(), this)
+        userService = UserService(OkHttpClient(), this)
 
         reg_cancle_btn.setOnClickListener {
             finish()
@@ -42,7 +41,7 @@ class RegActivity : AppCompatActivity() {
     }
 
     private fun signUp(user: User) {
-        val signUpAsyncTask = SignUpAsyncTask(user, loginService)
+        val signUpAsyncTask = SignUpAsyncTask(user, userService)
         val response = signUpAsyncTask.execute().get()
         if (response == HttpsURLConnection.HTTP_NO_CONTENT) {
             Toast.makeText(this, "회원가입에 성공하였습니다.", Toast.LENGTH_SHORT).show()
@@ -54,11 +53,11 @@ class RegActivity : AppCompatActivity() {
 
     class SignUpAsyncTask(
         private val user: User,
-        private val loginService: LoginService
+        private val userService: UserService
     ) : AsyncTask<Unit, Unit, Int>() {
 
         override fun doInBackground(vararg params: Unit?): Int {
-            return loginService.signUp(user)
+            return userService.signUp(user)
         }
     }
 }

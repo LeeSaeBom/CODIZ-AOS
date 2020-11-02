@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.AsyncTask
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.mobile.service.LoginService
+import com.example.mobile.service.UserService
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_login.*
 import okhttp3.OkHttpClient
@@ -13,14 +13,14 @@ import java.net.HttpURLConnection
 
 class LoginActivity : AppCompatActivity() {
 
-    private lateinit var loginService: LoginService
+    private lateinit var userService: UserService
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
 
-        loginService = LoginService(OkHttpClient(), this)
+        userService = UserService(OkHttpClient(), this)
 
         login_reg_btn.setOnClickListener {
             val intent = Intent(this, RegActivity::class.java)
@@ -35,7 +35,7 @@ class LoginActivity : AppCompatActivity() {
         val signInAsyncTask = SignInAsyncTask(
             login_id.text.toString(),
             login_pw.text.toString(),
-            loginService
+            userService
         )
 
         val responseCode = signInAsyncTask.execute().get()
@@ -57,11 +57,11 @@ class LoginActivity : AppCompatActivity() {
     class SignInAsyncTask(
         private val userId: String,
         private val userPassword: String,
-        private val loginService: LoginService
+        private val userService: UserService
     ) : AsyncTask<Unit, Unit, Int>() {
 
         override fun doInBackground(vararg params: Unit?): Int {
-            return loginService.signIn(userId, userPassword)
+            return userService.signIn(userId, userPassword)
         }
     }
 }

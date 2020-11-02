@@ -23,3 +23,8 @@ data class ProblemPutRequest(
 data class GrammerRequest(
     val grammer: Grammer
 )
+
+data class UserScoreUpdateRequest(
+    val userId: String,
+    val userScore: Long
+)
