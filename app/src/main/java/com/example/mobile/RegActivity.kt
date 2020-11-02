@@ -33,7 +33,8 @@ class RegActivity : AppCompatActivity() {
                         reg_id.text.toString(),
                         reg_pw.text.toString(),
                         reg_email.text.toString(),
-                        reg_name.text.toString()
+                        reg_name.text.toString(),
+                        0
                     )
                 )
             }

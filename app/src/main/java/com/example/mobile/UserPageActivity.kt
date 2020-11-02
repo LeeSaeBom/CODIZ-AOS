@@ -20,7 +20,7 @@ class UserPageActivity : AppCompatActivity() {
             UserReviseActivity.UserAsyncTask(userId, UserService(OkHttpClient(), this)).execute()
                 .get()
         if (user != null) {
-            user_level.text = (user.userScore / 15 + 1).toString()
+            user_level.text ="LEVEL ${(user.userScore / 15 + 1)}"
         }
 
         userpage_revise.setOnClickListener {

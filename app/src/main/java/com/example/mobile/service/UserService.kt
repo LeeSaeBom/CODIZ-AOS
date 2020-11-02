@@ -57,6 +57,7 @@ class UserService(
         val mediaType = MediaType.get("application/json")
         val request = Request.Builder()
             .url("${serverHost}/user/${userId}")
+            .header("content-type", "application/json")
             .get()
             .build()
         try {
@@ -77,6 +78,7 @@ class UserService(
 
         val request = Request.Builder()
             .url("${serverHost}/user/update/${userId}")
+            .header("content-type", "application/json")
             .put(requestBody)
             .build()
         try {
@@ -98,6 +100,7 @@ class UserService(
 
         val request = Request.Builder()
             .url("${serverHost}/user/updateScore")
+            .header("content-type", "application/json")
             .put(requestBody)
             .build()
         try {
