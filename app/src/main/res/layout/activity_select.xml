@@ -12,7 +12,7 @@
         android:id="@+id/solved_problems"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/bnt_green"
         android:text="지난 문제 보러가기"
         android:textColor="#C3100808"
@@ -23,10 +23,24 @@
         app:layout_constraintWidth_percent="0.8" />
 
     <Button
+        android:id="@+id/bnt_userpage"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bnt_pink"
+        android:text="내 정보"
+        android:textColor="#C3100808"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.05"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/solved_problems"
+        app:layout_constraintWidth_percent="0.8" />
+
+    <Button
         android:id="@+id/grammerButton"
         android:layout_width="337dp"
         android:layout_height="206dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="28dp"
         android:background="@drawable/border_blue"
         android:fontFamily="sans-serif-medium"
         android:text="문법 보기"
@@ -42,7 +56,7 @@
         android:id="@+id/problemButton"
         android:layout_width="337dp"
         android:layout_height="206dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/border_blue"
         android:text="문제 선택"
         android:textColor="#D5656262"
