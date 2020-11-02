@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.widget.Toast
 import com.example.mobile.service.ProblemHistoryService
 import com.example.mobile.service.ProblemService
+import com.example.mobile.service.UserService
 import kotlinx.android.synthetic.main.activity_result.*
 import kotlinx.android.synthetic.main.activity_result.main_btn
 import kotlinx.android.synthetic.main.activity_result.retry_btn
@@ -41,33 +42,29 @@ class ResultActivity : AppCompatActivity() {
 
         if (correct == 1) {
             txtScore.text = "정답입니다."
-            problemHistoryService.putProblemHistory(
+            ProblemHistoryAsyncTask(
                 ProblemHistory(
                     userId,
                     problemId,
                     problemName,
                     ProblemType.valueOf(problemType),
                     true
-                )
-            )
-            ProblemHistoryAsyncTask(ProblemHistory(
-                userId,
-                problemId,
-                problemName,
-                ProblemType.valueOf(problemType),
-                true
-            ),
-            problemHistoryService).execute()
+                ),
+                problemHistoryService
+            ).execute()
+            UserUpdateScoreAsyncTask(userId, 1, UserService(OkHttpClient(), this)).execute().get()
         } else {
             txtScore.text = "틀렸습니다."
-            ProblemHistoryAsyncTask(ProblemHistory(
-                userId,
-                problemId,
-                problemName,
-                ProblemType.valueOf(problemType),
-                false
-            ),
-                problemHistoryService).execute()
+            ProblemHistoryAsyncTask(
+                ProblemHistory(
+                    userId,
+                    problemId,
+                    problemName,
+                    ProblemType.valueOf(problemType),
+                    false
+                ),
+                problemHistoryService
+            ).execute()
         }
 
         retry_btn.setOnClickListener {
@@ -91,6 +88,17 @@ class ResultActivity : AppCompatActivity() {
 
         override fun doInBackground(vararg params: Unit?) {
             problemHistoryService.putProblemHistory(problemHistory)
+        }
+    }
+
+    class UserUpdateScoreAsyncTask(
+        private val userId: String,
+        private val userScore: Long,
+        private val userService: UserService
+    ) : AsyncTask<Unit, Unit, Unit>() {
+
+        override fun doInBackground(vararg params: Unit?) {
+            userService.updateScore(userId, userScore)
         }
     }
 }

@@ -31,5 +31,11 @@ class SelectActivity : AppCompatActivity() {
             intent.putExtra("userId", userId)
             startActivity(intent)
         }
+
+        bnt_userpage.setOnClickListener {
+            val intent = Intent(this, UserPageActivity::class.java)
+            intent.putExtra("userId", userId)
+            startActivity(intent)
+        }
     }
 }

@@ -56,6 +56,12 @@
         <activity
             android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".UserPageActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".UserReviseActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

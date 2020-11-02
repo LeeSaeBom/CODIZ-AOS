@@ -53,6 +53,24 @@ class UserService(
         return -1
     }
 
+    fun findByUserId(userId: String): User? {
+        val mediaType = MediaType.get("application/json")
+        val request = Request.Builder()
+            .url("${serverHost}/user/${userId}")
+            .get()
+            .build()
+        try {
+            val response = okHttpClient.newCall(request).execute()
+            return Gson().fromJson(
+                response.body()?.string(),
+                User::class.java
+            )
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+        return null
+    }
+
     fun updateUser(userId: String, user: User): Int {
         val mediaType = MediaType.get("application/json")
         val requestBody: RequestBody = RequestBody.create(mediaType, Gson().toJson(user))
